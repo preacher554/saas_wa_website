@@ -12,6 +12,7 @@ import ChatNativeFeature from "./components/ChatNativeFeature.jsx";
 import DashboardPreview from "./components/DashboardPreview.jsx";
 import IndustryUseCases from "./components/IndustryUseCases.jsx";
 import PricingTeaser from "./components/PricingTeaser.jsx";
+import UsageMeterPreview from "./components/UsageMeterPreview.jsx";
 import FAQ from "./components/FAQ.jsx";
 import FinalCTA from "./components/FinalCTA.jsx";
 import Footer from "./components/Footer.jsx";
@@ -44,6 +45,7 @@ function LandingPage() {
         <DashboardPreview />
         <IndustryUseCases />
         <PricingTeaser />
+        <UsageMeterPreview />
         <FAQ />
         <FinalCTA />
       </main>

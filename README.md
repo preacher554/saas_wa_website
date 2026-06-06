@@ -49,6 +49,12 @@ Session demo hanya disimpan di `localStorage`. Belum ada Supabase Auth, database
 - `src/components/` berisi section modular untuk navbar, hero, dashboard preview, pricing teaser, FAQ, CTA, dan footer.
 - `src/index.css` menyimpan design tokens, utilities, dan style mockup dashboard.
 
+## Billing & Usage Preview
+
+Landing page memiliki static usage meter preview untuk menjelaskan paket dan kuota secara marketing. Preview ini hanya menampilkan informasi client-facing seperti paket aktif, billing period, AI Replies, Customers, Human Takeovers, Add-on AI Replies, serta warning 80% dan 100%.
+
+Preview ini tidak terkoneksi Supabase, tidak menjalankan billing real, tidak memproses payment, dan tidak menampilkan detail teknis/internal.
+
 ## Catatan
 
 Ini adalah marketing site dengan dashboard demo frontend-only, bukan dashboard runtime produksi. Belum ada backend, Supabase connection, auth asli, payment, atau secret/API key.

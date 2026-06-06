@@ -158,6 +158,53 @@ export const pricingCards = [
   },
 ];
 
+export const usageMeterPreview = {
+  plan: "Pro — AI Sales / Support Receptionist",
+  period: "1 Juni 2026 - 30 Juni 2026",
+  status: "Aman",
+  summary:
+    "Client melihat kuota yang mudah dipahami: paket aktif, periode berjalan, pemakaian balasan AI, customer, handoff manusia, dan add-on.",
+  metrics: [
+    {
+      label: "AI Replies",
+      used: 1840,
+      quota: 2500,
+      percent: 74,
+      helper: "Balasan agent ke customer bulan ini.",
+      tone: "safe",
+    },
+    {
+      label: "Customers",
+      used: 812,
+      quota: 1000,
+      percent: 81,
+      helper: "Customer unik yang masuk dalam periode billing.",
+      tone: "warning",
+    },
+    {
+      label: "Add-on AI Replies",
+      used: 120,
+      quota: 500,
+      percent: 24,
+      helper: "Kuota tambahan jika volume chat sedang naik.",
+      tone: "safe",
+    },
+  ],
+  counters: [
+    { label: "Human Takeovers", value: "38", caption: "Percakapan yang diambil alih admin." },
+    { label: "Warning 80%", value: "Customers", caption: "Client diberi sinyal sebelum kuota penuh." },
+    { label: "Warning 100%", value: "Upgrade/Add-on", caption: "Arahkan konsultasi, bukan hard shutdown." },
+  ],
+  clientVisible: [
+    "Paket aktif dan billing period",
+    "AI Replies used / quota",
+    "Customers used / quota",
+    "Human Takeovers",
+    "Add-on AI Replies",
+    "Warning 80% dan 100%",
+  ],
+};
+
 export const faqs = [
   {
     question: "Apakah ini hanya chatbot WhatsApp?",

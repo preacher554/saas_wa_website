@@ -26,7 +26,7 @@ export default function Navbar() {
         </div>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <a href="#" className="btn-ghost px-5 py-2.5 text-sm">
+          <a href="#/login" className="btn-ghost px-5 py-2.5 text-sm">
             Login
           </a>
           <a href="#" className="btn-acid px-5 py-2.5 text-sm">
@@ -55,7 +55,7 @@ export default function Navbar() {
               </a>
             ))}
             <div className="grid gap-3 pt-3">
-              <a href="#" className="btn-ghost w-full" onClick={closeMenu}>
+              <a href="#/login" className="btn-ghost w-full" onClick={closeMenu}>
                 Login
               </a>
               <a href="#" className="btn-acid w-full" onClick={closeMenu}>

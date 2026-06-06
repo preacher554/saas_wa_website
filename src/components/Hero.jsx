@@ -92,7 +92,7 @@ export default function Hero() {
             Konsultasi Gratis
             <ArrowRight className="h-4 w-4" />
           </a>
-          <a href="#dashboard" className="btn-ghost">
+          <a href="#/login" className="btn-ghost">
             <Eye className="h-4 w-4" />
             Lihat Demo Dashboard
           </a>

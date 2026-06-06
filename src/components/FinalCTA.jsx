@@ -17,7 +17,7 @@ export default function FinalCTA() {
                 Konsultasi via WhatsApp
                 <ArrowRight className="h-4 w-4" />
               </a>
-              <a href="#dashboard" className="btn-ghost bg-white/70">
+              <a href="#/login" className="btn-ghost bg-white/70">
                 <Eye className="h-4 w-4" />
                 Lihat Demo Dashboard
               </a>

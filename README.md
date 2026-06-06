@@ -33,6 +33,16 @@ npm run build
 npm run dev -- --host 0.0.0.0
 ```
 
+## Demo Login
+
+Marketing site ini punya demo frontend-only untuk melihat tampilan dalam tanpa akun:
+
+- Buka `#/login`
+- Klik `Masuk Demo Tanpa Akun`
+- Dashboard demo terbuka di `#/app`
+
+Session demo hanya disimpan di `localStorage`. Belum ada Supabase Auth, database, role access, atau backend runtime.
+
 ## Struktur Komponen
 
 - `src/data/siteData.js` menyimpan konten landing page seperti fitur, pain points, workflow, industri, pricing, dan FAQ.
@@ -41,6 +51,6 @@ npm run dev -- --host 0.0.0.0
 
 ## Catatan
 
-Ini adalah marketing site, bukan dashboard runtime. Belum ada backend, Supabase connection, auth, payment, atau secret/API key.
+Ini adalah marketing site dengan dashboard demo frontend-only, bukan dashboard runtime produksi. Belum ada backend, Supabase connection, auth asli, payment, atau secret/API key.
 
 Jangan commit secret, `.env`, atau konfigurasi credential ke repo.

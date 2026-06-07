@@ -3,6 +3,7 @@ import {
   Bot,
   ChevronDown,
   CirclePause,
+  Gauge,
   Home,
   Inbox,
   LayoutDashboard,
@@ -14,6 +15,7 @@ import {
   UserCheck,
   Users,
 } from "lucide-react";
+import { usageMeterPreview } from "../data/siteData.js";
 
 const inboxItems = [
   { name: "Dina Permata", label: "Online shop", status: "Hot", preview: "Minta diskon untuk 3 produk", active: true },
@@ -36,6 +38,75 @@ const statCards = [
   { label: "Lead hot", value: "8", note: "Perlu follow-up cepat" },
   { label: "AI status", value: "On", note: "Paused di 2 chat" },
 ];
+
+const formatNumber = (value) => Number(value || 0).toLocaleString("id-ID");
+
+function DemoUsageMeter() {
+  const aiReplyMetric = usageMeterPreview.metrics.find((metric) => metric.label === "AI Replies");
+  const warningCounters = usageMeterPreview.counters.filter((counter) => counter.label.includes("Warning"));
+
+  return (
+    <section className="demo-panel demo-usage-panel">
+      <div className="demo-panel-heading">
+        <div>
+          <span>Billing Tool</span>
+          <strong>Paket & kuota client</strong>
+        </div>
+        <div className="demo-usage-icon">
+          <Gauge className="h-5 w-5" />
+        </div>
+      </div>
+
+      <div className="demo-usage-plan">
+        <span>Paket aktif</span>
+        <strong>{usageMeterPreview.plan}</strong>
+        <p>{usageMeterPreview.period}</p>
+      </div>
+
+      <div className="demo-usage-basis">
+        <span>Basis billing paket</span>
+        <strong>
+          {formatNumber(aiReplyMetric?.quota)} AI replies / bulan
+        </strong>
+        <p>
+          Tiap client bisa punya paket dan kuota berbeda. Dashboard ini hanya menampilkan pemakaian yang aman untuk client,
+          bukan token, model call, provider, atau biaya internal.
+        </p>
+      </div>
+
+      <div className="demo-usage-metrics">
+        {usageMeterPreview.metrics.map((metric) => (
+          <div className="demo-usage-row" key={metric.label}>
+            <div className="demo-usage-row-head">
+              <span>{metric.label}</span>
+              <strong>
+                {formatNumber(metric.used)} / {formatNumber(metric.quota)}
+              </strong>
+            </div>
+            <div className="demo-usage-track">
+              <span className={metric.tone === "warning" ? "warning" : ""} style={{ width: `${metric.percent}%` }} />
+            </div>
+            <p>{metric.percent >= 80 ? "Hampir mencapai batas paket." : metric.helper}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="demo-usage-alerts">
+        {warningCounters.map((counter) => (
+          <div key={counter.label}>
+            <span>{counter.label}</span>
+            <strong>{counter.value}</strong>
+            <p>{counter.caption}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="demo-usage-note">
+        Preview statis dashboard client. Belum ada Supabase, payment, invoice, billing real, atau hard quota shutdown.
+      </div>
+    </section>
+  );
+}
 
 function Sidebar({ onLogout }) {
   return (
@@ -117,6 +188,8 @@ export default function DemoDashboard({ onLogout }) {
             </article>
           ))}
         </div>
+
+        <DemoUsageMeter />
 
         <div className="demo-workspace">
           <section className="demo-panel demo-inbox-panel">
@@ -215,6 +288,33 @@ export default function DemoDashboard({ onLogout }) {
                 <Home className="h-4 w-4" />
                 Lihat knowledge scope
               </button>
+            </section>
+
+            <section className="demo-panel">
+              <div className="demo-panel-heading">
+                <div>
+                  <span>Client Usage</span>
+                  <strong>Ringkasan billing</strong>
+                </div>
+              </div>
+              <div className="demo-kv-list">
+                <div>
+                  <span>Basis paket</span>
+                  <strong>AI reply quota</strong>
+                </div>
+                <div>
+                  <span>AI Replies</span>
+                  <strong>1.840 / 2.500</strong>
+                </div>
+                <div>
+                  <span>Warning</span>
+                  <strong className="lime-pill">812 / 1.000</strong>
+                </div>
+                <div>
+                  <span>Add-on</span>
+                  <strong>120 / 500 replies</strong>
+                </div>
+              </div>
             </section>
           </aside>
         </div>
